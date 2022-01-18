@@ -1,43 +1,38 @@
 # Problem Statement 
-This should be a brief description of the domain of your dataset (e.g. if it is the Titanic Dataset then write about the ship, the incident that happened, what you're trying to do with the data).
+The dataset lists caffeine and calorie content for various drinks along with the volume in which they are served. It is general knowledge that caffeine is a drug and thus its consumption needs to be monitored and limited otherwise leading to disastrous health consequences.
 ## Dataset
 
-The dataset used is the [Name of the Dataset](Download link) from (source of download e.g Kaggle). If the task is a classification task, then you must specify the number of classes and give a 1 line description of each class as follows(example of Iris Dataset). 
+The dataset used is the Caffeine Content of Drinks(https://www.kaggle.com/heitornunes/caffeine-content-of-drinks) from Kaggle. The task is a classification task, then you must specify the number of classes and give a 1 line description of each class as follows(example of Iris Dataset). 
 
-The 3 class labels are:
-<br>
+The 5 class labels are:
 
-**1. Iris Setosa:** Given iris flower belongs to the Setosa species
-<br>
-**2. Iris Virginica:** Given iris flower belongs to the Virginica species
-<br>
-**3. Iris Versicolor:** Given iris flower belongs to the Versicolor species
+**drink**: Drink's name that it is served as, example Coffee Friend Brewed Coffee, Nescafe Gold etc.
 
-If the task is a regression task, then explain the target variable and give brief statistics.(e.g. Housing Prices)
+**Volume (ml)**: Volume quantity of the drink in mililitres
 
-**Target Variable: SalePrice**
-<br>
-<br>
-Sale Price refers to the selling price of the house.
-<br>
-**Mean Selling Price:** 121,000$
-<br>
-**Max Selling Price:** 1,000,000$
-<br>
-**Min Selling Price:** 45,000$
+**Calories**: Calories quantity of the drink
 
+**Caffeine (mg)**: Caffeine quantity in miligrams listed for the entire contained that the drink is served in
 
-## Model(s) Used
+**type**: Drink's type - tea, coffee, energy drink, soft drink, energy shots 
 
-This needs to be a description of the model used and a brief overview of how it works in theory (e.g taken of a CNN Model): 
+## Models Used
+I used 3 classification algorithms on the dataset, these are discussed below
 
-The network architecture used was a basic CNN model, with Max Pooling and ReLU Activation functions. Input images are resized to an optimal size and then fed into the **Convolutional layer**. These images are converted to their pixel values, which can be imagined as a three-dimensional matrix for the purpose of visualization. The **Convolutional layer** has a kernel. This kernel is generally a small matrix of specified kernel size mxnx3 (3 for RGB images). 
-<br>
+### 1. Decision Trees:
+Decision Trees are a non-parametric supervised learning method used for classification and regression. The goal is to create a model that predicts the value of a target variable by learning simple decision rules inferred from the data features.
+A tree can be seen as a piecewise constant approximation. Decision trees use multiple algorithms to decide to split a node into two or more sub-nodes. The creation of sub-nodes increases the homogeneity of resultant sub-nodes. 
+Purity of the node increases with respect to the target variable. The decision tree splits the nodes on all available variables and then selects the split which results in most homogeneous sub-nodes.
 
-**Rectified Linear Unit (ReLU)** is the activation layer used in CNNs.The activation function is applied to increase non-linearity in the CNN. Images are made of different objects that are not linear to each other.
+### 2. Naive Bayes
+Naive Bayes classifiers are a collection of classification algorithms based on Bayes’ Theorem. It is not a single algorithm but a family of algorithms where all of them share a common principle, i.e. every pair of features being classified is independent of each other.
+It is a probabilistic classifier, which means it predicts on the basis of the probability of an object.
+Bayes' theorem is also known as Bayes' Rule or Bayes' law, which is used to determine the probability of a hypothesis with prior knowledge. It depends on the conditional probability.
 
-
-**Max Pooling:** A limitation of the feature map output of Convolutional Layers is that they record the precise position of features in the input. This means that small movements in the position of the feature in the input image will result in a different feature map. This can happen with re-cropping, rotation, shifting, and other minor changes to the input image. A common approach to addressing this problem from signal processing is called down sampling. This is where a lower resolution version of an input signal is created that still contains the large or important structural elements, without the fine detail that may not be as useful to the task.
-
+### 3. Logistic Regression
+Logistic regression (LR) is basically a supervised classification algorithm. In a classification problem, the target variable(or output), y, can take only discrete values for a given set of features(or inputs),X.
+The model builds a regression model to predict the probability that a given data entry belongs to the category numbered as “1”. Just like Linear regression assumes that the data follows a linear function, Logistic regression models the data using the sigmoid function.
+The setting of the threshold value is a very important aspect of Logistic regression and is dependent on the classification problem itself.
+In this particular case, LR is binomial, i.e., target variable can have only 2 possible types: “0” or “1” which represent "caffeine is not present in considerable amount" for "0" and vice-versa.
 ## Future Work
-Good ideas or strategies that you were not able to implement which you think can help  improve performance.
+Using heatmaps and convolution matrix to delve deeper into data visualization and improve the prediction accuracy by using more advanced and varied classification algorithms.
